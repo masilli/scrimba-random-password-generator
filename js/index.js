@@ -87,20 +87,26 @@ function generatePassword() {
 }
 
 // copy on click
-const copyPwdElements = document.querySelectorAll(".password");
-copyPwdElements.forEach((copyPwd) => {
-  copyPwd.onclick = function () {
+const copyPwd = document.querySelector(".password");
+
+copyPwd.onclick = function () {
     if (copyPwd.value === "") {
-      infoEl.textContent = "Nothing to copy...";
+        infoEl.textContent = "Nothing to copy...";
     } else {
-      document.execCommand("copy");
+        const tempInput = document.createElement("input");
+        tempInput.setAttribute("value", copyPwd.value);
+        document.body.appendChild(tempInput);
+        tempInput.select();
+        document.execCommand("copy");
+        document.body.removeChild(tempInput);
+        infoEl.textContent = "Password copied, don't forget to save it!";
     }
-  };
-  copyPwd.addEventListener("copy", function (event) {
+};
+
+copyPwd.addEventListener("copy", function (event) {
     event.preventDefault();
     if (event.clipboardData) {
-      event.clipboardData.setData("text/plain", copyPwd.value);
-      infoEl.textContent = "Password copied, don't forget to save it!";
+        event.clipboardData.setData("text/plain", copyPwd.value);
+        infoEl.textContent = "Password copied, don't forget to save it!";
     }
-  });
 });

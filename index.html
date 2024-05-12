@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>random password generator - scrimba challenge</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="shortcut icon" href="imgs/favicon.png" type="image/x-icon">
+</head>
+
+<body>
+    <main>
+        <h1>Generate <br><span>random password</span></h1>
+        <div class="options">
+            <label>
+                password length
+                <input type="number" min="6" max="24" id="length-input" value="8" required />
+            </label>
+            <label>
+                uppercase
+                <input type="checkbox" id="upper-letters-checkbox" checked required />
+            </label>
+            <label>
+                lowercase
+                <input type="checkbox" id="lower-letters-checkbox" checked required />
+            </label>
+            <label>
+                numbers
+                <input type="checkbox" id="numbers-checkbox" checked required />
+            </label>
+            <label>
+                symbols
+                <input type="checkbox" id="symbols-checkbox" checked required />
+            </label>
+        </div>
+        <hr />
+        <div class="password-div">
+            <label>
+                click to copy
+                <input type="text" id="pwd1" class="password" />
+            </label>
+            <p class="info"></p>
+        </div>
+        <hr />
+        <button id="generate-btn" type="submit">GENERATE</button>
+    </main>
+    
+    <script src="js/index.js"></script>
+
+</body>
+
+</html>
